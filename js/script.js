@@ -1,5 +1,4 @@
 
-console.log('heloo');
 
 function getElementtById( quantity, price, display){
       const kitkatCost = document.getElementById(quantity).value;
@@ -51,11 +50,27 @@ document.getElementById('apply-btn').addEventListener('click', function(){
 
      const discountValueField = document.getElementById('promo-code').value;
      if(discountValueField == '101'){
+        const totalBudgetField = document.getElementById('total-budget')
+        const totalBudgetValue = parseInt(totalBudgetField.innerText);
 
       const discount = (sum * 10) / 100;
-      const finalAll = sum - discount;
+      const finalAll = parseInt(sum - discount);
      
       document.getElementById('all-total').innerText = finalAll;
+      const container = document.getElementById('create-element');
+      const hr = document.createElement('hr');
+      hr.style.height='4px';
+      hr.style.color='green';
+      container.appendChild(hr);
+      
+      const h1 = document.createElement('h1');
+      h1.innerText= `Blance : ${totalBudgetValue - finalAll}`;
+      h1.style.background='green';
+      h1.style.color='white';
+      h1.style.padding='5px';
+      h1.style.fontSize='bold';
+      container.appendChild(h1);
+
 
      
      
